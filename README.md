@@ -11,9 +11,9 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+| Student Name  | William Chin     |
+| Student ID    | 920154712       |
+| Student Email | wchin1@sfsu.edu    |
 
 
 
