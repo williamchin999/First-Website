@@ -25,8 +25,12 @@ router.get('/login', (req,res,next) => {
 
 //register page
 router.get('/register', (req,res,next) => {
-  res.render('register');
+  res.render('registration');
 })
 
+//register page
+router.get('/postimage', (req,res,next) => {
+  res.render('postimage');
+})
 
 module.exports = router;

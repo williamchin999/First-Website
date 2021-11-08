@@ -1,0 +1,29 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#container{
+    display: grid;
+    grid-template-rows: repeat(5,300px);
+    grid-template-columns: repeat(5,300px);
+    grid-auto-rows: 300px 300px 300px 300px;
+    grid-auto-columns: 300px 300px 300px 300px;
+    gap: 12px 12px;
+    justify-content: center;
+    text-align: center;
+    width:auto;
+    
+}
+
+img{
+    border: 1px solid white;
+    box-shadow:  0 2px 10px #cccccc;
+}
+p {
+    /* position:absolute; */
+    border: 1px solid white;
+    margin:20px;
+    font-weight: bold;
+}
+h1{
+    text-align: center;
+}
