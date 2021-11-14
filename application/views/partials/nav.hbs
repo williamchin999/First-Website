@@ -1,16 +1,33 @@
-<nav id = "brand" class = "nav-items">
-    <div id = "brand" class= "nav-items">
-        <a href = "/" id = "brand-anchor">
-            <span id="brand-text">
-                <i style = "margine-right: .2rem;">i</i>PA
-            </span></a>
+<nav>
+    {{!-- <input id "nav-toggle" type="checkbox"> --}}
+    <div id = "banner">
+        {{!-- </div>img src="https://www.freepnglogos.com/uploads/camera-logo-png/camera-outline-icon-27.png" alt="logo" class="logo"> --}}
+        {{!-- <span class ="banner-text">Instructor's Photo App</span> --}}
     </div>
-    <input id="search-text" name="search-text" type="text">
-    <div id ="text-bar-icon">
-        <i id="sicon" class="fas fa search nav-items"></i>
+
+    <ul class = "home-link">
+        <li> <a href="/index" id="home">Home</a> </li>
+    </ul>
+    <div class = "search-bar"> 
+        <input id="search-text" , name="search-text" type="text">
     </div>
-    <a href = "/postimage" id="post-button" class="nav-items anchor-buttons">
-        Post</a>
-    <a href = "/login" id="authenticate-button" class="nav-items anchor-buttons">
-        Log in</a>
+    
+    <ul class = "links">
+
+        <li> <a href="/postimage" id="post-button" class="nav-items anchor-buttons">Post Image</a> </li>
+
+        <li> <a href="/register" id="authenticate-button" class="nav-items anchor-buttons">Registration</a> </li>
+
+        <li> <a href="/login" id="authenticate-button" class="nav-items anchor-buttons">Log In</a> </li>
+
+    </ul>
+    {{!-- <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </label> --}}
 </nav>
+{{!-- <div class="img-container">
+    <img src="https://wallpaperboat.com/wp-content/uploads/2020/06/03/42361/aesthetic-anime-01.jpg" alt="">
+    <img src="https://i.pinimg.com/originals/c3/76/47/c37647d3cd724c0dc86a7db7627eaba5.jpg" alt="">
+</div> --}}

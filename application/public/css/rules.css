@@ -3,59 +3,53 @@
     padding:5px;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    width: 50%;
-    margin: auto
-}
-
 .shadow {
     border:1px solid #cccccc;
-    box-shadow: 0 10px 10px grey;
-    padding: 20px;
-    min-width: 320px;
+    box-shadow: 0 10px 10px lightblue;
 }
 
 .grid-container {
-    display:grid;
-    align-content: center;
-    justify-content: center; 
-
-    gap: 4px;
-    grid-auto-flow: row;
-
-    margin-top: 20px;
-    margin-bottom:  20px;
-    line-height: 0.5cm;
+    grid-area: main;
+    background-color:rgba(107,185,240,0.6);
+    min-width: 600px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 20px;
+    align-self: center;
 }
 .site-header {
+    margin-top: 10%;
     font-size: 30px;
     text-align: center;
-    margin-top:20px;
     font-weight: bold;
+    color:black;
 }
 .site-content{
-    margin-left:auto;
-    margin-right: auto;
-    margin-top: 10%;
-    margin-bottom: 20px;
+    padding-left:10%;
+    padding-right:10%;
+    margin-bottom: 10%;
     text-align: left;
     justify-content: left;
 }
-
-label {
+.site-content form label {
     float: left;
+    font-weight: bold;
+    color:black;
+    display: block;
+}
+
+.empty-space {
+    grid-area: space;
 }
 
 input {
-    display: block;
     width: 100%;
-    box-sizing:border-box;
-}
-
-span {
-    display: block;
-    overflow: hidden;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    border-radius: 5px;
 }
 
 input[type=submit] {
@@ -68,17 +62,18 @@ input[type=checkbox] {
 a:link, a:visited {
     color: blue;
     padding: auto;
-    text-align: center;
+    align-items: left;
     text-decoration: underline;
-    display: inline-block;
+    font-weight: bold;
+}
+a:hover {
+    color:red;
+}
+.error {
+    padding-left:5%;
+    padding-right:5%;
+    margin-bottom: auto;
+    text-align: center;
+    color:red
 }
 
-#footer {
-    display:inline-block;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    color: blanchedalmond;
-    text-align: center;
-    background-color: black;
-  }

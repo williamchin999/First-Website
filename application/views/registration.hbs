@@ -1,10 +1,6 @@
 <div class="grid-container shadow">
     <header class="site-header"> Registration Form</header>
 
-    <div class="error">
-        <h5 id="error"></h5>
-    </div>
-
     <div class="site-content">
         <form id="myForm" onsubmit="event.preventDefault(); myValidate();">
             <label for="username">Username</label>
@@ -26,10 +22,13 @@
             <label for="13">I am 13+</label>
             <input type="checkbox" name="13" required />
             <br>
+            <br>
 
             <label for="tos">
                 <a href="default.asp" target="_blank">Terms of Services </a>
+    
             </label>
+            <br>
 
             <input type="checkbox" name="tos" required />
             <br>

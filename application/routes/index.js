@@ -17,6 +17,11 @@ router.use('/login', (req,res,next) => {
     next();
   }
 })
+//get index page
+router.get('/index', (req,res,next) => {
+  console.log('index route');
+  res.render('index');
+})
 //Get Login page
 router.get('/login', (req,res,next) => {
   console.log('login route');
