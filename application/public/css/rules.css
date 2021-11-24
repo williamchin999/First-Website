@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    padding:5px;
 }
 
 .shadow {
@@ -8,15 +7,16 @@
     box-shadow: 0 10px 10px lightblue;
 }
 
-.grid-container {
+.form-container {
     grid-area: main;
+    margin: 0px auto auto auto;
     background-color:rgba(107,185,240,0.6);
     min-width: 600px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin-top: 7%;
+    margin-bottom: 10%;
     border-radius: 20px;
     align-self: center;
 }
@@ -39,24 +39,28 @@
     font-weight: bold;
     color:black;
     display: block;
-}
-
-.empty-space {
-    grid-area: space;
-}
-
-input {
+    padding-top: 5px;
+    padding-bottom:10px;
     width: 100%;
-    margin-top: 2px;
+}
+
+#make-account{
+    padding-top: 10%;
+}
+
+.site-content form input {
+    width: 100%;
     margin-bottom: 5px;
     border-radius: 5px;
 }
 
-input[type=submit] {
+.site-content form input[type=submit] {
     width: auto;
+    margin:auto;
 }
-input[type=checkbox] {
+.site-content form input[type=checkbox] {
     width: auto;
+    
 }
 
 a:link, a:visited {
@@ -77,3 +81,6 @@ a:hover {
     color:red
 }
 
+form >p {
+    font-weight: bold;
+}

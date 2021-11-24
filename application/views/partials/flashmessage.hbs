@@ -1,0 +1,8 @@
+<div id = "flash-message">
+    {{!-- peak into msg obj in order to decide what txt to display --}}
+    {{#if messages.error}}
+    <div class = "alert-danger"> {{messages.error}}</div>
+    {{else}}
+    <div class = "alert-success"> {{messages.success}}</div>
+    {{/if}}
+</div>

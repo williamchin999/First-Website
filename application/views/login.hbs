@@ -1,17 +1,17 @@
-<div class="grid-container shadow">
+<div class="form-container shadow">
     <header class="site-header"> Login Form</header>
 
     <div class="site-content">
-        <form>
-            <label for="uname">Username</label>
-            <input type="text" name="uname" />
+        <form id="myForm" method="POST" action= "/users/login" enctype="application/x-www-form-urlencoded">
+            <label for="username">Username</label>
+            <input type="text" id ="username" name="username" required/>
             <br>
 
             <label for="pass">Password</label>
-            <input type="password" name="pass" />
+            <input type="text" id = "pass" name="password" required/>
             <br>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit"/>
         </form>
         <div id="make-account">Do not have an account?
             <a href="/register">Register Here!</a>

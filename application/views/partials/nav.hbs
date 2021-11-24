@@ -14,13 +14,22 @@
     
     <ul class = "links">
 
+        <li> <a href="/viewpost" id="viewpost-button" class="nav-items anchor-buttons">View Post</a> </li>
+
         <li> <a href="/postimage" id="post-button" class="nav-items anchor-buttons">Post Image</a> </li>
 
-        <li> <a href="/register" id="authenticate-button" class="nav-items anchor-buttons">Registration</a> </li>
+        <li> <a href="/register" id="register-button" class="nav-items anchor-buttons">Registration</a> </li>
 
-        <li> <a href="/login" id="authenticate-button" class="nav-items anchor-buttons">Log In</a> </li>
+        {{#if logged}}
+        <li> <a id="logout-button" class="nav-items anchor-buttons">Log Out</a> </li>
+        
+        {{else}}
+        <li> <a href="/login" id="login-button" class="nav-items anchor-buttons">Log In</a> </li>
+        {{/if}}
+
 
     </ul>
+
     {{!-- <label for="nav-toggle" class="icon-burger">
         <div class="line"></div>
         <div class="line"></div>

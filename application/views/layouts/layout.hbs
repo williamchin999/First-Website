@@ -7,18 +7,43 @@
     <title>Document</title>
     <link rel= "stylesheet" type="text/css" href= "../public/css/rules.css">
     <link rel= "stylesheet" type="text/css" href= "../public/css/index.css">
+    <script defer src = "../public/js/frontend.js"></script>
+    {{!-- <script defer src = "/public/js/validation.js"></script> --}}
 
 </head>
   <body>
 
     <div id="page-container">
       <div id = "container">
+        {{log this}}
         {{>nav}}
+
+        {{#if (emptyObject messages)}}
+        {{> flashmessage}}
+        {{/if}}
+
         {{{body}}}
       </div>
 
       {{> footer}}
     </div>
     
+    {{#if logged}}
+      <script>
+        console.log("logged");
+        let ele = document.getElementById('logout-button'); 
+        if(ele) {
+          ele.onclick = (even) => {
+            fetch('/users/logout', {
+              method: "POST"
+            })
+            .then((data) => {
+              location.replace('/');
+            })
+          }
+        }
+      </script>
+    {{/if}}
+
   </body>
 </html>
