@@ -34,6 +34,17 @@ const checkEmail = (email) => {
     return emailChecker.test(email);
 }
 
+const checkTitle = (title) => {
+    let emptyChecker = /^(?!\s*$).+/;
+    console.log(emptyChecker.test(title));
+    return emptyChecker.test(title);
+}
+const checkDesc = (description) => {
+    let emptyChecker = /^(?!\s*$).+/;
+    console.log(emptyChecker.test(description));
+    return emptyChecker.test(description);
+}
+
 const registerValidator = (req,res, next) => {
     let username = req.body.username;
     let password = req.body.password;
@@ -67,13 +78,13 @@ const loginValidator = (req,res, next) => {
     let password = req.body.password;
 
     if(!checkUsername(username)) {
-        req.flash('error',"Please begin with a letter & Enter 2 or more characters ");
+        req.flash('error',"Invalid Username");
         req.session.save( err => {
             res.redirect("/login");
           })
     }
     else if (!checkPassword(password)){
-        req.flash('error',"Minimum 4 characters & At least 1 letter and number");
+        req.flash('error',"Invalid Password");
         req.session.save( err => {
             res.redirect("/login");
           })
@@ -83,4 +94,28 @@ const loginValidator = (req,res, next) => {
     }
 }
 
-module.exports = {registerValidator, loginValidator}
+const postValidator = (req,res,next) => {
+    let title = req.body.title;
+    let description = req.body.description;
+
+    console.log("This is the title:");
+    console.log(req.body.title);
+
+    if(!checkTitle(title)) {
+        req.flash('error',"Invalid Title");
+        req.session.save( err => {
+            res.redirect("/postimage");
+          })
+    }
+    else if (!checkDesc(description)){
+        req.flash('error',"Invalid Description");
+        req.session.save( err => {
+            res.redirect("/postimage");
+          })
+    }
+    else {
+        next();
+    }
+
+}
+module.exports = {registerValidator, loginValidator, postValidator}

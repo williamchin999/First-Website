@@ -1,0 +1,81 @@
+<div id="post-container">
+    <div id="photo-container">
+        <div id="post-title" class="display-6 font-weight-bold">{{currentPost.title}}</div>
+        <div id="post-info">
+            <p><span class="form-label">Posted by:</span> <span id="post-author">{{currentPost.username}}</span></p>
+            <p><span class="form-label">Post at:</span> <span id="post-date">{{currentPost.created}}</span></p>
+        </div>
+        <div id="post-desc" class="lead">{{currentPost.description}}</div>
+        <img id="post-image" class="img-fluid" src="/{{currentPost.photopath}}" alt="A photo should have been here">
+    </div>
+    <div id="comment-container">
+        <div id="messages">
+            {{#each currentPost.comments}}
+                {{> comment this}}
+            {{/each}}
+        </div>
+        <div id="comment-box">
+            <textarea id="comment-box-text" class="form-control" aria-label="with textarea"
+                placeholder="Enter Comment Here!"></textarea>
+                 <button id= "comment-box-button" class="comment-button-sumbit"><i>Submit</i></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded',(event) => {
+        document.querySelectorAll('span[class=date-posted').forEach((postedDate) => {
+            postedDate.textContent = new Date(postedDate.textContent).toLocaleString();
+        });
+    });
+    
+    function addMessage(data) {
+        let template = document.createElement('template');
+        template.innerHTML =
+                `<div id="message-${data.commentId}">
+            <strong class="author-text">@${data.username}</strong>
+            <span class="date-posted"> ${new Date().toLocaleString()}</span>
+            <div class="comment-text">${data.comment}</div>
+        </div>`;
+
+        document.getElementById('messages').firstChild.before(template.content.firstChild);
+    }
+    document.getElementById('comment-box-button').onclick = (event) => {
+        //check if working
+        //console.log('clicked');
+        let commentText = document.getElementById('comment-box-text').value;
+        //grab any number of digits to map to a number then grab first element (postid : 40) from path /post/40 
+        let postId = document.location.pathname.match(/\d+/g).map(Number)[0];
+
+        if(!commentText) {
+            return;
+        }
+        
+        let fetchOptions = {
+            method: "POST",
+            headers: {
+                "Content-Type":"Application/json"
+            },
+            body: JSON.stringify({
+                comment:commentText,
+                postId,postId
+            })
+        }
+            //dont need to add local host if you are fetching from own (monolithic) server 
+            //cant do this approach on micro services architecture cause application is broken into smaller pieces
+            //and ran on diff servers
+            fetch('/comments/create', fetchOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                if(data.code ==1) {
+                    addMessage(data);
+                }
+                else{
+                    console.log(data);
+                    addFlashFromFrontEnd(data.message,data.status);
+                }
+            })
+            .catch(err => console.log(err));
+
+    }
+</script>

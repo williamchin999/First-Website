@@ -3,17 +3,17 @@
         <header class="site-header"> Post Image</header>
 
         <div class="site-content">
-            <form>
+            <form id = "post-image" class= "form-grid-postimage" method="POST" enctype="multipart/form-data" action="/posts/createPost">
                 <label for="title">Title</label>
-                <input type="text" name="title" />
+                <input type="text" name="title" required/>
                 <br>
 
                 <label for="desc">Description</label>
-                <input type="text" name="email" />
+                <input type="text" name="description" required/>
                 <br>
 
                 <label for="img">Image</label>
-                <input type="file" name="img" />
+                <input type="file" name="uploadImage" required/>
                 <br>
 
                 <label for="AUP">
@@ -28,3 +28,33 @@
 
         </div>
     </div>
+
+    {{!-- <script>
+        const _form = document.getElementById('post-image');
+        _form.onsubmit = function(event) {
+            //tell submit to wait
+            event.preventDefault();
+            let _body = new FormData(_form);
+            //adding _form data does same as below
+            //_body.append('title', document.getElementById('post.title').textContent)
+
+            //first param is url, 2nd params are options
+            //all you need to send response
+            fetch('/posts/createPost', {
+                body:_body,
+                method: "POST"
+            })
+            //handle response
+            .then((data) => {
+                console.log(data);
+                return data.json();
+            })
+            .then((dataAsObject) => {
+                console.log(dataAsObject);
+                alert(dataAsObject.message);
+                location.replace(dataAsObject.redirect);
+
+            })
+            .catch(err => console.log(err));
+        }
+    </script> --}}

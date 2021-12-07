@@ -1,3 +1,7 @@
 <div id ="main-content">
-    
+    {{!-- represents array --}}
+    {{#each results}}
+        {{!-- represents 1 element in array --}}
+        {{>card this}}
+    {{/each}}
 </div>

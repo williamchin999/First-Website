@@ -12,7 +12,7 @@ Please follow the instructions below and fill in the information requested when 
 |               | Information   |
 |:-------------:|:-------------:|
 | Student Name  | William Chin     |
-| Student ID    | 920154712       |
+| Student ID    | 920174512       |
 | Student Email | wchin1@sfsu.edu    |
 
 
@@ -20,9 +20,9 @@ Please follow the instructions below and fill in the information requested when 
 # Build/Run Instructions
 
 ## Build Instructions
-1. steps here
-2. steps here
+1. cd applicatoin
+2. npm install
 
 ## Run Instructions
-1. steps here
-2. steps here 
+1. cd application
+2. npm start

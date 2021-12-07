@@ -7,7 +7,7 @@ body {
     background-repeat: no-repeat;
     background-position: auto;
     background-size: auto;
-    position: fixed;
+    background-attachment: fixed;
 }
 
 #page-container {
@@ -27,10 +27,12 @@ body {
 }
 
 #flash-message {
+    background-color: lightblue;
     position: fixed;
     left: 50%;
     top: 25%;
     transform: translate(-50%,0);
+    z-index: 9999;
 }
 
 #flash-message div {
@@ -92,10 +94,18 @@ nav .search-bar{
 }
 
 nav .search-bar input {
-    width:100%;
+    width:90%;
     font-size: 25px;
     color:black;
     border-radius: 5px;
+    margin-right:10px;
+}
+
+nav .search-bar #search-button {
+    width:10%;
+    font-size: 25px;
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fthenounproject.com%2Fterm%2Fsearch%2F&psig=AOvVaw1x4YpXIvLeSp5UIe5fphcP&ust=1638830700482000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNjcgaDezfQCFQAAAAAdAAAAABAD");
+    border-radius: 5px;     
 }
 nav .links {
     float:right;
@@ -120,6 +130,7 @@ nav .links a {
     font-weight: bold;
     font-size: 25px;
 }
+
 
 /* #nav-toggle {
     position:absolute;
@@ -186,7 +197,7 @@ footer {
     background: transparent;
     color:black;
     position: absolute;
-    bottom: 5%;
+    bottom: auto;
     font-size: auto;
     font-weight: bold;
     padding-left:5%;

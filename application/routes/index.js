@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var isLoggedIn = require('../middleware/routeprotectors').userIsLoggedIn;
+const {getRecentPosts, getPostById,getCommentsByPostId} = require('../middleware/postsmiddleware');
+var db = require('../config/database');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+//when accessing home page, getRecentPost gets called first
+router.get('/', getRecentPosts, function(req, res, next) {
   res.render('index', { title: 'CSC 317 App', name:"William Chin" });
 });
 
@@ -43,12 +46,15 @@ router.use('/postimage', isLoggedIn);
 
 //postimage page
 router.get('/postimage', (req,res,next) => {
-  res.render('postimage');
-})
+  res.render('postimage',{title:"Post an Image"});
+});
 
 //viewpost page
-router.get('/viewpost', (req,res,next) => {
-  res.render('viewpost');
-})
+//can accept anything not just a number after a slash (/)
+//so add \\d+ for one or more digits
+router.get('/post/:id(\\d+)', getPostById, getCommentsByPostId, (req,res,next) => {
+  
+  res.render("imagepost", {title:`Post ${req.params.id}` });
+});
 
 module.exports = router;

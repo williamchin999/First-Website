@@ -84,3 +84,13 @@ a:hover {
 form >p {
     font-weight: bold;
 }
+
+#image-post-image {
+    height: 300px;
+    width: 470px;
+    padding: 20px;
+}
+
+.info-tags {
+    margin: 10px;
+}
